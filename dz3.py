@@ -65,7 +65,6 @@ def guess_ticket(ticket_num, ticket_len) -> int:
     
 list1 = get_numbers_ticket(15, 5, 5)
 print(list1) # щоб перевіряти
-
 print(f"\nu guessed {guess_ticket(list1, 6)} nums!!! congrats =)")
 
 
