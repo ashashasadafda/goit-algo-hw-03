@@ -26,46 +26,46 @@ import re
 
 
 # # #завдання 2 (виправив)
-def get_numbers_ticket(min, max, quantity):
-    myList = []
-    if(min < max):
-        while len(myList) < quantity:
-            xd = random.randint(min, max)
-            if xd not in myList:
-                myList.append(xd)
+# def get_numbers_ticket(min, max, quantity):
+#     myList = []
+#     if(min < max):
+#         while len(myList) < quantity:
+#             xd = random.randint(min, max)
+#             if xd not in myList:
+#                 myList.append(xd)
                 
-        myList.sort()
-        return myList
-    else: 
-        min, max = max, min # свапаємо значення місцями
-        while len(myList) < quantity:
-            xd = random.randint(min, max)
-            if xd not in myList:
-                myList.append(xd)
+#         myList.sort()
+#         return myList
+#     else: 
+#         min, max = max, min # свапаємо значення місцями
+#         while len(myList) < quantity:
+#             xd = random.randint(min, max)
+#             if xd not in myList:
+#                 myList.append(xd)
         
-        myList.sort()
-        return myList
+#         myList.sort()
+#         return myList
                 
                 
-def guess_ticket(ticket_num, ticket_len) -> int:
-    ticket_len = len(ticket_num)
-    guessedNums = 0
+# def guess_ticket(ticket_num, ticket_len) -> int:
+#     ticket_len = len(ticket_num)
+#     guessedNums = 0
     
-    for x in range(ticket_len):
-        xd = int(input("enter num: "))
-        if xd == ticket_num[x]:
-            guessedNums += 1
-            print(f"u guessed {x+1} num! lets go to the next -> ")
-        else:
-            print("unluck :(")
+#     for x in range(ticket_len):
+#         xd = int(input("enter num: "))
+#         if xd == ticket_num[x]:
+#             guessedNums += 1
+#             print(f"u guessed {x+1} num! lets go to the next -> ")
+#         else:
+#             print("unluck :(")
     
-    return guessedNums
+#     return guessedNums
     
       
     
-list1 = get_numbers_ticket(15, 5, 5)
-print(list1) # щоб перевіряти
-print(f"\nu guessed {guess_ticket(list1, 6)} nums!!! congrats =)")
+# list1 = get_numbers_ticket(15, 5, 5)
+# print(list1) # щоб перевіряти
+# print(f"\nu guessed {guess_ticket(list1, 6)} nums!!! congrats =)")
 
 
 
@@ -82,9 +82,12 @@ print(f"\nu guessed {guess_ticket(list1, 6)} nums!!! congrats =)")
 #         print("я починаюсь з 38, тому я додам тільки '+': ") #dlya perevirku
 #         return '+' + normalized_number + '\n'
     
+#     elif normalized_number.startswith("0"):
+#         print("я починаюсь з 0, тому я додам '+38': ") #dlya perevirku
+#         return '+38' + normalized_number[1:] + '\n'
+    
 #     else:
-#         print("я не починаюсь ні на 38, ні на +38, тому я додам '+38': ") #dlya perevirku
-#         return '+38' + normalized_number + '\n'
+#         return '+380' + normalized_number[3:] + '\n' # додав зрізи
         
 
 # phone_numbers = [
@@ -93,7 +96,8 @@ print(f"\nu guessed {guess_ticket(list1, 6)} nums!!! congrats =)")
 #     "(050)8889900",
 #     "38050-111-22-22",
 #     "38050 111 22 11   ",
-#     "+380684838293" #dlya perevirku
+#     "+380 68 483 82 93", #dlya perevirku
+#     "432 11 222 22 22"
 # ]
 
 # for phone_number in phone_numbers:
@@ -112,15 +116,15 @@ print(f"\nu guessed {guess_ticket(list1, 6)} nums!!! congrats =)")
         
 #         next_birthday_year = today.year
         
-#         if birthday < today:
-#             next_birthday_year += 1
+#         # if birthday < today:
+#         #     next_birthday_year += 1
         
 #         next_birthday = datetime(next_birthday_year, birthday.month, birthday.day).date()
         
 #         #для проміжкової перевірки
 #         print(f"Next birthday for {user['name']}: {next_birthday}")
         
-#         if (next_birthday - today <= timedelta(days=365)) and (next_birthday - today >= timedelta(days=0)):
+#         if (next_birthday - today <= timedelta(days=30)) and (next_birthday - today >= timedelta(days=0)):
 #             if next_birthday.weekday() in [5, 6]:
 #                 next_birthday += timedelta(days=(7 - next_birthday.weekday()))
         
@@ -136,11 +140,11 @@ print(f"\nu guessed {guess_ticket(list1, 6)} nums!!! congrats =)")
 # users = [
 #     {"name": "John", "birthday": "1990.05.12"},
 #     {"name": "Alice", "birthday": "1985.12.28"},
-#     {"name": "Bob", "birthday": "1995.08.02"},
+#     {"name": "Bob", "birthday": "1995.03.02"}, # у боба день народження через 7 днів (меньше за 30) тому программа повинна привітати його
 #     {"name": "Emma", "birthday": "1992.11.15"}
 # ]
 
-# print(get_upcoming_birthdays(users))
+# upcoming_birthdays = (get_upcoming_birthdays(users))
 
 # for user in upcoming_birthdays:
 #     print(f"Happy birthday, {user['name']}! The celebration date is {user['congratulation_date']}")
