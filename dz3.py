@@ -61,7 +61,7 @@ def guess_ticket(ticket_num, ticket_len) -> int:
     
     return guessedNums
     
-    
+      
     
 list1 = get_numbers_ticket(15, 5, 5)
 print(list1) # щоб перевіряти
